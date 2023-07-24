@@ -5,9 +5,9 @@ import HomePage from './components/Home.page';
 import RQSuperHeroesPage from './components/RQSuperHeroes.page';
 import SuperHeroesPage from './components/SuperHeroes.page';
 
-function App() {
-  const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
