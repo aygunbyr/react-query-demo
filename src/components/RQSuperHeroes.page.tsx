@@ -1,11 +1,11 @@
 import { useSuperHeroesData } from '../hooks/useSuperHeroesData';
 
 function RQSuperHeroesPage() {
-  const onSuccess = (data: object): void => {
-    console.log(data);
+  const onSuccess = (data: string[]): void => {
+    console.log('Perform side effect after data fetching', data);
   };
 
-  const onError = (error: Error) => {
+  const onError = (error: Error): void => {
     console.log('Perform side effect after encountering error', error);
   };
 

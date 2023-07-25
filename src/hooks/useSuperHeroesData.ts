@@ -1,19 +1,19 @@
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { SuperHero } from "../types/superhero"
 
 const fetchSuperHeroes = async () => {
-  return await axios.get('http://localhost:4000/superheroes');
+  return await axios.get<SuperHero[]>('http://localhost:4000/superheroes');
 };
 
-export const useSuperHeroesData = (onSuccess: (data: SuperHero[]) => void, onError: (error: Error) => void) => {
+export const useSuperHeroesData = (onSuccess: (data: string[]) => void, onError: (error: Error) => void) => {
   const { data, error, isError, isFetching, isLoading, refetch } = useQuery(
     ['super-heroes'],
     fetchSuperHeroes,
     {
       onSuccess,
       onError,
-      select: (data) => {
+      select: (data: AxiosResponse<SuperHero[]>): string[] => {
         const superHeroNames = data.data.map((hero: SuperHero) => hero.name);
         return superHeroNames;
       },
