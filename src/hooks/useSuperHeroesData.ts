@@ -6,17 +6,13 @@ const fetchSuperHeroes = async () => {
   return await axios.get<SuperHero[]>('http://localhost:4000/superheroes');
 };
 
-export const useSuperHeroesData = (onSuccess: (data: string[]) => void, onError: (error: Error) => void) => {
+export const useSuperHeroesData = (onSuccess: (data: AxiosResponse<SuperHero[]>) => void, onError: (error: Error) => void) => {
   const { data, error, isError, isFetching, isLoading, refetch } = useQuery(
     ['super-heroes'],
     fetchSuperHeroes,
     {
       onSuccess,
       onError,
-      select: (data: AxiosResponse<SuperHero[]>): string[] => {
-        const superHeroNames = data.data.map((hero: SuperHero) => hero.name);
-        return superHeroNames;
-      },
     }
   );
 
