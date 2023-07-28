@@ -1,13 +1,16 @@
 import { useQuery, useMutation, useQueryClient } from 'react-query';
-import axios, { AxiosResponse } from 'axios';
+// import axios, { AxiosResponse } from 'axios';
+import { request } from '../utils/axios-utils';
 import { SuperHero } from "../types/superhero"
 
 const fetchSuperHeroes = async () => {
-  return await axios.get<SuperHero[]>('http://localhost:4000/superheroes');
+  // return await axios.get<SuperHero[]>('http://localhost:4000/superheroes');
+  return request({url: '/superheroes'})
 };
 
 const addSuperHero = async (hero: SuperHero) => {
-  return await axios.post('http://localhost:4000/superheroes', hero)
+  // return await axios.post('http://localhost:4000/superheroes', hero)
+  return request({url: '/superheroes', method: 'POST', data: hero})
 }
 
 export const useSuperHeroesData = (onSuccess: (data: AxiosResponse<SuperHero[]>) => void, onError: (error: Error) => void) => {
