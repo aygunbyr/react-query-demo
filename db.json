@@ -14,6 +14,26 @@
       "id": 3,
       "name": "Wonder Woman",
       "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "Shazam",
+      "alterEgo": "Billy Batson",
+      "id": 4
+    },
+    {
+      "name": "Green Arrow",
+      "alterEgo": "Oliver Queen",
+      "id": 5
+    },
+    {
+      "name": "Catwoman",
+      "alterEgo": "Selena Kyle",
+      "id": 6
+    },
+    {
+      "name": "Spider man",
+      "alterEgo": "adını unuttum",
+      "id": 7
     }
   ],
   "friends": [
@@ -39,7 +59,11 @@
   "channels": [
     {
       "id": "codevolution",
-      "courses": ["react", "vue", "angular"]
+      "courses": [
+        "react",
+        "vue",
+        "angular"
+      ]
     }
   ],
   "colors": [
